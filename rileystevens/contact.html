@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Riley Stevens</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="page page--bg" style="background-image:url('images/home-bg.jpg');">
+    <div class="page__content">
+
+      <header class="topnav">
+        <nav class="topnav__left" aria-label="Primary">
+          <a class="navlink" href="index.html">Home</a>
+          <a class="navlink" href="portfolio.html">Portfolio</a>
+          <a class="navlink navlink--accent" href="contact.html">Contact</a>
+        </nav>
+        <div class="topnav__right">
+          <a class="navlink" href="https://instagram.com/heythereitsry" target="_blank" rel="noopener">@heythereitsry</a>
+        </div>
+      </header>
+
+      <section class="formwrap" aria-label="Contact form">
+        <h1>Contact</h1>
+
+        <!-- Simple mailto form (works, but not as reliable as Formspree). -->
+        <form action="mailto:derpo113@gmail.com" method="post" enctype="text/plain">
+          <div class="formrow">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required />
+          </div>
+
+          <div class="formrow">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="formrow">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+          </div>
+
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+
+        <p class="section__sub" style="margin-top:14px;">
+          Prefer direct email? <a class="navlink navlink--accent" href="mailto:derpo113@gmail.com">derpo113@gmail.com</a>
+        </p>
+      </section>
+
+      <div class="divider-line" aria-hidden="true"></div>
+
+    </div>
+
+    <footer class="bluebar">
+      <small>© Riley Stevens 2026 All Rights Reserved</small>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,356 @@
+/* ---- Fonts (optional but matches the mockup vibe) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root{
+  --bg: #0b0b0d;
+  --text: #f4f4f6;
+  --muted: rgba(244,244,246,.75);
+  --line: rgba(244,244,246,.18);
+  --card: rgba(0,0,0,.45);
+  --cardBorder: rgba(244,244,246,.14);
+  --blue: #3aa6e7;
+  --blueBar: #3aa6e7;
+  --shadow: 0 14px 40px rgba(0,0,0,.55);
+}
+
+*{ box-sizing: border-box; }
+html, body{ height:100%; }
+body{
+  margin:0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: "Playfair Display", serif;
+}
+
+/* Shared page wrapper */
+.page{
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background image layer (you can swap per-page) */
+.page--bg{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.page--bg::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  /* Darken overlay so text reads like your mockup */
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,.78) 0%,
+    rgba(0,0,0,.64) 45%,
+    rgba(0,0,0,.20) 100%
+  );
+  pointer-events:none;
+}
+.page__content{
+  position: relative;
+  min-height: 100vh;
+  padding: 40px 56px 74px;
+}
+
+/* Top corner links like your homepage */
+.corner{
+  position:absolute;
+  top: 28px;
+  font-size: 20px;
+  letter-spacing: .2px;
+  color: var(--text);
+  text-decoration: none;
+}
+.corner:hover{ opacity:.85; }
+.corner--left{ left: 44px; }
+.corner--right{ right: 44px; }
+
+/* Bottom corner links */
+.bottom{
+  position:absolute;
+  bottom: 64px; /* above blue bar */
+  font-size: 20px;
+  color: var(--text);
+  text-decoration: none;
+}
+.bottom:hover{ opacity:.85; }
+.bottom--left{ left: 44px; }
+.bottom--right{ right: 44px; }
+
+/* Thin horizontal line across page (mockup divider) */
+.divider-line{
+  position:absolute;
+  left:0; right:0;
+  top: 62%;
+  height: 1px;
+  background: var(--line);
+}
+
+/* Blue bar footer */
+.bluebar{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 34px;
+  background: var(--blueBar);
+  display:flex;
+  align-items:center;
+  padding: 0 18px;
+}
+.bluebar small{
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  color: rgba(0,0,0,.85);
+}
+
+/* Center title block (homepage style) */
+.hero{
+  max-width: 860px;
+  margin-top: 140px;
+}
+.hero__script{
+  font-family: "Great Vibes", cursive;
+  font-size: 76px;
+  color: var(--blue);
+  line-height: .9;
+  margin: 0 0 4px 0;
+}
+.hero__title{
+  font-size: 140px;
+  letter-spacing: 12px;
+  font-weight: 600;
+  margin: 0;
+}
+.hero__subtitle{
+  margin-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+
+/* Utility nav for inner pages (keeps same “text link” vibe) */
+.topnav{
+  position:absolute;
+  top: 26px;
+  left: 44px;
+  right: 44px;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 18px;
+}
+.topnav__left,
+.topnav__right{
+  display:flex;
+  gap: 18px;
+  align-items:center;
+}
+.navlink{
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  color: var(--text);
+  text-decoration: none;
+}
+.navlink:hover{ opacity:.85; }
+.navlink--accent{
+  color: var(--blue);
+}
+
+/* Content sections */
+.section{
+  margin-top: 120px;
+  max-width: 1100px;
+}
+.section__heading{
+  margin: 0 0 18px 0;
+  font-size: 46px;
+  letter-spacing: 2px;
+}
+.section__sub{
+  margin: 0 0 26px 0;
+  font-family: "Montserrat", sans-serif;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* Cards / buttons (portfolio choices) */
+.grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.cardlink{
+  display:block;
+  text-decoration:none;
+  color: var(--text);
+  border: 1px solid var(--cardBorder);
+  background: var(--card);
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, border-color .15s ease;
+}
+.cardlink:hover{
+  transform: translateY(-3px);
+  border-color: rgba(58,166,231,.55);
+}
+.cardlink__img{
+  height: 220px;
+  background: rgba(255,255,255,.06);
+  background-size: cover;
+  background-position: center;
+}
+.cardlink__body{
+  padding: 18px 18px 20px;
+}
+.cardlink__kicker{
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  color: var(--muted);
+  margin:0 0 8px 0;
+}
+.cardlink__title{
+  margin:0;
+  font-size: 30px;
+  letter-spacing: 1px;
+}
+.cardlink__desc{
+  margin: 10px 0 0 0;
+  font-family:"Montserrat", sans-serif;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Writing page */
+.reading{
+  margin-top: 120px;
+  max-width: 980px;
+  border: 1px solid var(--cardBorder);
+  background: rgba(0,0,0,.50);
+  border-radius: 18px;
+  padding: 26px 26px;
+  box-shadow: var(--shadow);
+}
+.reading h1{
+  margin: 0 0 14px 0;
+  font-size: 44px;
+  letter-spacing: 2px;
+}
+.reading p{
+  font-family:"Montserrat", sans-serif;
+  color: rgba(244,244,246,.82);
+  line-height: 1.85;
+  font-size: 15px;
+  margin: 0 0 14px 0;
+}
+
+/* Art grid */
+.artgrid{
+  margin-top: 120px;
+  max-width: 1120px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.artcard{
+  border: 1px solid var(--cardBorder);
+  background: rgba(0,0,0,.45);
+  border-radius: 18px;
+  overflow:hidden;
+  box-shadow: var(--shadow);
+}
+.artcard__img{
+  height: 220px;
+  background: rgba(255,255,255,.06);
+  background-size: cover;
+  background-position: center;
+}
+.artcard__body{
+  padding: 14px 14px 16px;
+}
+.artcard__title{
+  margin: 0 0 6px 0;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.artcard__desc{
+  margin: 0;
+  font-family:"Montserrat", sans-serif;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Contact form */
+.formwrap{
+  margin-top: 120px;
+  max-width: 720px;
+  border: 1px solid var(--cardBorder);
+  background: rgba(0,0,0,.50);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+.formwrap h1{
+  margin: 0 0 10px 0;
+  font-size: 44px;
+  letter-spacing: 2px;
+}
+.formrow{
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 14px;
+}
+label{
+  font-family:"Montserrat", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+input, textarea{
+  font-family:"Montserrat", sans-serif;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(244,244,246,.14);
+  color: var(--text);
+  padding: 12px 12px;
+  border-radius: 12px;
+  outline: none;
+}
+textarea{ min-height: 150px; resize: vertical; }
+input:focus, textarea:focus{
+  border-color: rgba(58,166,231,.55);
+}
+.btn{
+  margin-top: 16px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(58,166,231,.55);
+  background: rgba(58,166,231,.12);
+  color: var(--text);
+  text-decoration:none;
+  font-family:"Montserrat", sans-serif;
+  letter-spacing: 1px;
+  cursor:pointer;
+}
+.btn:hover{ opacity:.92; }
+
+/* Responsive */
+@media (max-width: 900px){
+  .page__content{ padding: 34px 22px 74px; }
+  .corner--left, .corner--right, .bottom--left, .bottom--right{ left:22px; right:22px; }
+  .hero__title{ font-size: 84px; letter-spacing: 8px; }
+  .hero__script{ font-size: 58px; }
+  .grid{ grid-template-columns: 1fr; }
+  .artgrid{ grid-template-columns: 1fr; }
+}
